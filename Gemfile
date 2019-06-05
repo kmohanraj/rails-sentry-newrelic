@@ -25,8 +25,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-
+# error reporting to sentry server
 gem "sentry-raven"
+
+# To monitor your applications in production
+gem 'newrelic_rpm'
 
 
 # Reduces boot times through caching; required in config/boot.rb

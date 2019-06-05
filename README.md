@@ -20,7 +20,7 @@ end
 config.filter_parameters << :password
 ```
 
-DSN add to [application.rb](config/application.rb)
+##### DSN add to [application.rb](config/application.rb)
 ```
 Raven.configure do |config|
   config.dsn = 'https://*******************************:*******************************@sentry.io/1469301'
@@ -28,7 +28,7 @@ end
 config.filter_parameters << :password
 ```
 
-create [sentry.rb](config/initializers/sentry.rb) 
+##### create [sentry.rb](config/initializers/sentry.rb) 
 ```
 Raven.configure do |config|
   config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
@@ -48,3 +48,21 @@ class ApplicationController < ActionController::Base
   end
 end
 ```
+
+### Implemet New Relic 
+
+#### 1. Installation
+
+adding it to your Gemfile
+```
+# To monitor your applications in production
+gem 'newrelic_rpm'
+```
+
+#### 2.Configuration
+
+To monitor your applications in production, create an account at http://newrelic.com/ . There you can sign up for a free Lite account or one of our paid subscriptions.
+
+##### create [newrelic.yml](config/newrelic.yml)
+
+

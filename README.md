@@ -9,7 +9,7 @@ gem "sentry-raven"
 
 #### 2.Configuration
 
-Open up [](config/application.rb) and configure the DSN, and any other [settings](https://docs.sentry.io/clients/ruby/config/) you need
+[Open up](config/application.rb) and configure the DSN, and any other [settings](https://docs.sentry.io/clients/ruby/config/) you need
 
 ```
 # if used is credentials file in the sentry key to use this type
@@ -20,6 +20,7 @@ end
 config.filter_parameters << :password
 ```
 
+[application.rb](config/application.rb)
 ```
 Raven.configure do |config|
   config.dsn = 'https://*******************************:*******************************@sentry.io/1469301'
@@ -27,7 +28,7 @@ end
 config.filter_parameters << :password
 ```
 
-- create sentry.rb to [](config/initializers/sentry.rb) 
+[create sentry.rb to](config/initializers/sentry.rb) 
 ```
 Raven.configure do |config|
   config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)

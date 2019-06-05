@@ -1,4 +1,4 @@
-- Implement Sentry to Rails Application
+### Implement Sentry Raven to Rails Application
 
 #### 1.Installation
 
@@ -20,7 +20,7 @@ end
 config.filter_parameters << :password
 ```
 
-[application.rb](config/application.rb)
+DSN add to [application.rb](config/application.rb)
 ```
 Raven.configure do |config|
   config.dsn = 'https://*******************************:*******************************@sentry.io/1469301'
@@ -28,7 +28,7 @@ end
 config.filter_parameters << :password
 ```
 
-[create sentry.rb to](config/initializers/sentry.rb) 
+create[sentry.rb](config/initializers/sentry.rb) 
 ```
 Raven.configure do |config|
   config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)

@@ -63,6 +63,39 @@ gem 'newrelic_rpm'
 
 To monitor your applications in production, create an account at http://newrelic.com/ . There you can sign up for a free Lite account or one of our paid subscriptions.
 
-##### create [newrelic.yml](config/newrelic.yml)
+##### create a file for [newrelic.yml](config/newrelic.yml)
+
+```
+common: &default_settings
+  # if use credentials in license key
+  # license_key: <%= Rails.application.credentials[:new_relic_key] %>
+  license_key: ""
+  log_level: info
+
+production:
+  <<: *default_settings
+  app_name: New Relic (DEV)
+  monitor_mode: false
+  agent_enabled: false
+  distributed_tracing.enabled: false
+  dispatcher: 'puma'
+
+test:
+  <<: *default_settings
+  app_name: New Relic (Test)
+  monitor_mode: false
+  agent_enabled: false
+  distributed_tracing.enabled: false
+  dispatcher: 'puma'
+
+production:
+  <<: *default_settings
+  app_name: New Relic  (Prod)
+  monitor_mode: true
+  distributed_tracing.enabled: true
+  dispatcher: 'puma'
+
+
+```
 
 

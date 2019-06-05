@@ -72,7 +72,7 @@ common: &default_settings
   license_key: ""
   log_level: info
 
-production:
+development:
   <<: *default_settings
   app_name: New Relic (DEV)
   monitor_mode: false

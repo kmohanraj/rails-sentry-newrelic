@@ -28,14 +28,14 @@ end
 config.filter_parameters << :password
 ```
 
-create[sentry.rb](config/initializers/sentry.rb) 
+create [sentry.rb](config/initializers/sentry.rb) 
 ```
 Raven.configure do |config|
   config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
 end
 ```
 
-#### 3.Params and sessions
+#### 3.Params and sessions added application controller [application_controller.rb](app/controllers/application_controller.rb)
 ```
 class ApplicationController < ActionController::Base
   before_action :set_raven_context
